@@ -1,0 +1,22 @@
+<div id="container">
+  <h3><ion-icon name="person-add" style="margin-left: 20px;"></ion-icon></h3>
+  <div>
+      <ion-icon name="people" style="position:absolute;margin-left: 10px;margin-top:7px;font-size:25px;color:#888;"></ion-icon> 
+      <input class="form-login" type="text" placeholder="Usuario" name="usuario" [(ngModel)]="RegisterData.usuario">
+      <br><br>
+      <ion-icon name="finger-print" style="position:absolute;margin-left: 10px;margin-top:7px;font-size:25px;color:#888;"></ion-icon>
+      <input class="form-login" [type]="mostrarContrasena ? 'text' : 'password'" placeholder="Contraseña" name="contrasena" [(ngModel)]="RegisterData.contrasena">
+      <br><br>
+      <input class="form-login" [type]="mostrarContrasena ? 'text' : 'password'" placeholder="Repetir Contraseña" name="contrasena" [(ngModel)]="contrasenaRepetida">
+      <br><br>
+      <div>
+        <ion-button color="success" (click)="comprobarUsuario()" >Registrar</ion-button>
+        <ion-button color="dark" (click)="mostrarContrasena = !mostrarContrasena">
+          <ion-icon [name]="mostrarContrasena ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </div>
+      <div>
+        <ion-button *ngIf="registrado" color="dark" (click)="copiar()">COPIAR CREDENCIALES</ion-button>
+      </div>
+  </div>
+</div>

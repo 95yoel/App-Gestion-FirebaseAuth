@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center;">
+      <button (click)="salir()"><ion-icon name="arrow-back" class="iconoNavegacion"></ion-icon></button>
+      Administración <ion-icon name="briefcase" style="margin-left: 20px;"></ion-icon> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondo">
+  <ion-accordion-group>
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label class="elementoAcordeon">Gestión administradores <ion-icon style="margin-left: 20px; font-size: 20px;" name="people"></ion-icon> </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <app-registrar-admins></app-registrar-admins>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label class="elementoAcordeon">Gestión mesas <ion-icon style="margin-left: 20px; font-size: 20px;" name="hammer"></ion-icon></ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <app-gestion-mesas></app-gestion-mesas>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label class="elementoAcordeon">Cuentas <ion-icon style="margin-left: 20px; font-size: 20px;" name="pulse"></ion-icon></ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <app-gestion-cuentas></app-gestion-cuentas>
+      </div>
+    </ion-accordion>
+    <ion-accordion>
+      <ion-item slot="header" color="light">
+        <ion-label class="elementoAcordeon">Gestión de productos <ion-icon style="margin-left: 20px; font-size: 20px;" name="cart"></ion-icon></ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <app-gestion-carta></app-gestion-carta>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

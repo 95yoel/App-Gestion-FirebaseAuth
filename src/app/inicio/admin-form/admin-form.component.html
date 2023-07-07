@@ -1,0 +1,15 @@
+
+  <div id="container">
+    <strong>Inicio de sesión</strong>
+    <br><br>
+    <div>
+        <ion-icon name="people" style="position:absolute;margin-left: 10px;margin-top:7px;font-size:25px;color:#888;"></ion-icon> 
+        <input class="form-login" type="text" placeholder="Usuario" name="usuario" [(ngModel)]="loginData.usuario">
+        <br><br>
+        <ion-icon name="finger-print" style="position:absolute;margin-left: 10px;margin-top:7px;font-size:25px;color:#888;"></ion-icon>
+         <input class="form-login" type="password" placeholder="Contraseña" name="contrasena" [(ngModel)]="loginData.contrasena">
+        <br><br>
+        <ion-button color="success" (click)="comprobarUsuario()" >Iniciar sesión</ion-button>
+        
+    </div>
+  </div>

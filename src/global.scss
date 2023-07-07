@@ -24,3 +24,22 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+.fondo{
+    --background: rgb(29,140,255);
+    --background: linear-gradient(0deg, rgba(29,140,255,1) 48%, rgba(0,206,255,1) 100%);
+}
+
+.iconoNavegacion{
+    position:absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 27px;
+}
+.elementoAcordeon{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+}

@@ -1,17 +1,32 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {canActivate,redirectUnauthorizedTo} from '@angular/fire/auth-guard';
 
-const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+const redirectUnauthorizedToInicio = () => redirectUnauthorizedTo(['inicio']);
+
+
+const routes: Routes = [  
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'usuario',
+    loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
+    ...canActivate(redirectUnauthorizedToInicio)
+  },
 ];
+
+
 
 @NgModule({
   imports: [

@@ -1,0 +1,29 @@
+
+
+img{
+   padding-bottom: 60px;
+}
+ion-card{
+    width: 40%;
+    left: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+
+#container {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+@media(max-width: 768px){
+    ion-card{
+        width: 80%;
+        left: 10%;
+    }
+}
+
+    
