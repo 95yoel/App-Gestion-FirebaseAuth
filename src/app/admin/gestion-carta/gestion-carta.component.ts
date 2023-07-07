@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-gestion-carta',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionCartaComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private data:DataService) { }
 
   ngOnInit() {}
+
+  abrir(){
+    this.data.getEntrantes().subscribe((res)=>{
+      console.log(res);
+    }
+    );
+    
+  }
 
 }
