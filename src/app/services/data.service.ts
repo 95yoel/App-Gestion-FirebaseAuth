@@ -3,16 +3,20 @@ import {Firestore, addDoc, collection, collectionData, deleteDoc, doc, docData, 
 import { Observable } from 'rxjs';
 
 export interface Producto{
-  id: string;
+  id: number;
   nombre: string;
   precio: number;
 }
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  letId:number=0;
 
   constructor(private firestore:Firestore) { }
 
@@ -65,6 +69,7 @@ export class DataService {
     const producto = doc(this.firestore, `${categoria}/${id}`);
     return deleteDoc(producto);
   }
+  
 
 
   //FUNCIONES UPDATE
@@ -78,10 +83,11 @@ export class DataService {
 
   //Obtener ultima id de la categoria
   
-  getLastId(categoria:string):Observable<Producto[]>{
-    const productos = collection(this.firestore, categoria);
-    return collectionData(productos, {idField: 'id'}) as Observable<Producto[]>;
+  avanzarId(){
+    this.letId=this.letId+1;
+    return this.letId;
   }
+
 
 
 

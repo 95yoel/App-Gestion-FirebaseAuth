@@ -72,10 +72,10 @@
 [style.opacity]="mostrarFormBebida ? '1' : '0'"
 [style.height]="mostrarFormBebida ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber">
+            <input type="number" placeholder="Precio" [(ngModel)]="Producto.precio" class="inputNumber">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>

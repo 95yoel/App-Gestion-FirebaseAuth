@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { DataService, Producto } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-bebidas',
@@ -8,8 +8,16 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class BebidasComponent  implements OnInit {
 
+  producto: Producto[] = [];
+
   constructor(private data:DataService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.getBebidas().subscribe(res=>{
+      this.producto = res;
+    }
+    );
+  }
+
 
 }
