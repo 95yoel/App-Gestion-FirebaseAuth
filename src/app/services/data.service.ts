@@ -76,4 +76,13 @@ export class DataService {
 
 
 
+  //Obtener ultima id de la categoria
+  
+  getLastId(categoria:string):Observable<Producto[]>{
+    const productos = collection(this.firestore, categoria);
+    return collectionData(productos, {idField: 'id'}) as Observable<Producto[]>;
+  }
+
+
+
 }

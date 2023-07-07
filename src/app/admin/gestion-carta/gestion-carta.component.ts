@@ -9,6 +9,7 @@ import { DataService } from '../../services/data.service';
 export class GestionCartaComponent  implements OnInit {
 
   Producto ={
+    id : '',
     nombre:'',
     precio : 0,
   }
@@ -22,6 +23,11 @@ export class GestionCartaComponent  implements OnInit {
   constructor(private data:DataService) { }
 
   ngOnInit() {}
+
+  anadir(categoria:string){
+    
+    this.data.addProducto(this.Producto,categoria);
+  }
 
   abrir(){
     this.data.getEntrantes().subscribe((res)=>{
