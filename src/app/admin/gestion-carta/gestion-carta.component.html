@@ -1,10 +1,18 @@
 <div class="cajaSeccion">
     <h3>Entrantes</h3>
-    <button style="background: none;"><ion-icon name="add-circle" size="large"></ion-icon></button>
+    <button style="background: none;" (click)="abrirFormEntrante()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
-<div style="text-align: center;">
+<div class="cajaFormulario"
+ [style.opacity]="mostrarFormEntrante ? '1' : '0'"
+ [style.height]="mostrarFormEntrante ? 'auto' : '0'"
+ [style.transition]="'opacity 0.3s,height 0.2s'">
     <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
-    <input type="number" placeholder="Precio"><br><br>
+    <div class="cajaInputs">
+        <div style="position: relative;">
+            <input type="number" placeholder="Precio" class="inputNumber">
+            <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
+        </div>
+    </div><br><br>
     <ion-button color="success">Añadir</ion-button>
 </div>
 
@@ -13,11 +21,19 @@
 
 <div class="cajaSeccion">
     <h3>Platos</h3>
-    <button style="background: none;"><ion-icon name="add-circle" size="large"></ion-icon></button>
+    <button style="background: none;" (click)="abrirFormPlato()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
-<div style="text-align: center;">
+<div class="cajaFormulario"
+[style.opacity]="mostrarFormPlato ? '1' : '0'"
+[style.height]="mostrarFormPlato ? 'auto' : '0'"
+[style.transition]="'opacity 0.3s,height 0.2s'">
     <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
-    <input type="number" placeholder="Precio"><br><br>
+    <div class="cajaInputs">
+        <div style="position: relative;">
+            <input type="number" placeholder="Precio" class="inputNumber">
+            <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
+        </div>
+    </div><br><br>
     <ion-button color="success">Añadir</ion-button>
 </div>
 
@@ -26,11 +42,19 @@
 
 <div class="cajaSeccion">
     <h3>Postres</h3>
-    <button style="background: none;"><ion-icon name="add-circle" size="large"></ion-icon></button>
+    <button style="background: none;" (click)="abrirFormPostres()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
-<div style="text-align: center;">
+<div class="cajaFormulario"
+[style.opacity]="mostrarFormPostre ? '1' : '0'"
+[style.height]="mostrarFormPostre ? 'auto' : '0'"
+[style.transition]="'opacity 0.3s,height 0.2s'">
     <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
-    <input type="number" placeholder="Precio"><br><br>
+    <div class="cajaInputs">
+        <div style="position: relative;">
+            <input type="number" placeholder="Precio" class="inputNumber">
+            <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
+        </div>
+    </div><br><br>
     <ion-button color="success">Añadir</ion-button>
 </div>
 
@@ -38,12 +62,20 @@
 
 
 <div class="cajaSeccion">
-    <h3>Entrantes</h3>
-    <button style="background: none;"><ion-icon name="add-circle" size="large"></ion-icon></button>
+    <h3>Bebidas</h3>
+    <button style="background: none;" (click)="abrirFormBebidas()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
-<div style="text-align: center;">
+<div class="cajaFormulario"
+[style.opacity]="mostrarFormBebida ? '1' : '0'"
+[style.height]="mostrarFormBebida ? 'auto' : '0'"
+[style.transition]="'opacity 0.3s,height 0.2s'">
     <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
-    <input type="number" placeholder="Precio"><br><br>
+    <div class="cajaInputs">
+        <div style="position: relative;">
+            <input type="number" placeholder="Precio" class="inputNumber">
+            <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
+        </div>
+    </div><br><br>
     <ion-button color="success">Añadir</ion-button>
 </div>
 

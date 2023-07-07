@@ -8,6 +8,17 @@ import { DataService } from '../../services/data.service';
 })
 export class GestionCartaComponent  implements OnInit {
 
+  Producto ={
+    nombre:'',
+    precio : 0,
+  }
+  
+  mostrarFormEntrante:boolean=false;
+  mostrarFormPlato:boolean=false;
+  mostrarFormPostre:boolean=false;
+  mostrarFormBebida:boolean=false;
+
+
   constructor(private data:DataService) { }
 
   ngOnInit() {}
@@ -16,10 +27,23 @@ export class GestionCartaComponent  implements OnInit {
     this.data.getEntrantes().subscribe((res)=>{
       console.log(res);
     }
-    );
-    
+    ); 
   }
 
+
+
+  abrirFormEntrante(){
+    this.mostrarFormEntrante=!this.mostrarFormEntrante;
+  }
+  abrirFormPlato(){
+    this.mostrarFormPlato=!this.mostrarFormPlato;
+  }
+  abrirFormPostres(){
+    this.mostrarFormPostre=!this.mostrarFormPostre;
+  }
+  abrirFormBebidas(){
+    this.mostrarFormBebida=!this.mostrarFormBebida;
+  }
 
   
 
