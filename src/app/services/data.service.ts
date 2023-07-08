@@ -8,6 +8,12 @@ export interface Producto{
   precio: number;
 }
 
+export interface Mesa{
+  id: number;
+  numero: number;
+  ruta: string;
+}
+
 
 
 
@@ -17,9 +23,11 @@ export interface Producto{
 export class DataService {
 
   letId:number=0;
+  letContadorMesas:number=0;
 
   constructor(private firestore:Firestore) { }
 
+//PRODUCTOS
   //FUNCIONES GET
 
   //elegimos que producto vamos a devolver mediante un string
@@ -79,13 +87,30 @@ export class DataService {
     return updateDoc(producto,{id: prod.id, nombre: prod.nombre, precio: prod.precio})
   }
 
-
-  //Obtener ultima id de la categoria
+//MESAS
+  //FUNCIONES POST 
   
+  addMesa(mesa:Mesa){
+    const elegirMesa = collection(this.firestore, 'mesas');
+    return addDoc(elegirMesa, mesa);
+  }
+
+//CONTADORES
+  
+
+  //ID
+
   avanzarId(){
-    this.letId=this.letId+1;
+    this.letId = this.letId+1;
     return this.letId;
   }
+
+  //MESA
+
+  avanzarNumeroMesa(){
+    this.letContadorMesas = this.letContadorMesas+1;
+    return this.letContadorMesas;
+  }  
 
 
 

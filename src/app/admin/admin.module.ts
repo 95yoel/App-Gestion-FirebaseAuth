@@ -19,6 +19,7 @@ import { PlatosComponent } from './gestion-carta/platos/platos.component';
 import { PostresComponent } from './gestion-carta/postres/postres.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +36,8 @@ import { PostresComponent } from './gestion-carta/postres/postres.component';
     BebidasComponent,
     EntrantesComponent,
     PlatosComponent,
-    PostresComponent
+    PostresComponent,
+    
   ]
 })
 export class AdminPageModule {}

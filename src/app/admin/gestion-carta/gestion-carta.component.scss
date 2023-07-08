@@ -1,10 +1,7 @@
 h3{
   margin-left: 5px;
 }
-.cajaSeccion{
-  display: flex;
-  justify-content: space-between;
-}
+
 input{
   margin-top: 5px;
   height: 37px;
@@ -30,9 +27,7 @@ textarea:focus{
   right: 10px;
   transform: translateY(-50%);
 }
-.cajaFormulario{
-  text-align: center;
-}
+
 .cajaInputs{
   display: flex;
   align-items: center; 

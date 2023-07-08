@@ -1,3 +1,16 @@
-<p>
-  gestion-mesas works!
-</p>
+<!-- <img src="../../../assets/mesas/mesa6.png"> -->
+<div class="cajaSeccion">
+    <h3>Mesas</h3>
+    <button style="background: none;font-size: 20px;" (click)="mostrar()">Mesa nueva <ion-icon name="add-circle" size="large"></ion-icon></button>
+</div>
+<div class="cajaFormulario"
+[style.display]="mostrarFormMesa ? 'block' : 'none'">
+    <h6 style="text-align: left;">Crear mesa</h6>
+    <ion-select placeholder="Selecciona ocupantes" style="text-align: center;" cancelText="Cancelar" okText="Aceptar" [(ngModel)]="mesa.numero" (ngModelChange)="comprobarCambios()">
+        <ion-select-option disabled hidden>Elige</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+    </ion-select>
+    <ion-button (click)="comprobarMesa()" [disabled]="!defecto==false" color="success">Añadir</ion-button>
+</div>

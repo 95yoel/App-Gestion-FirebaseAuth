@@ -43,6 +43,13 @@
     font-style: italic;
     text-transform: uppercase;
 }
+.cajaSeccion{
+    display: flex;
+    justify-content: space-between;
+  }
+  .cajaFormulario{
+    text-align: center;
+  }
 textarea{
     z-index: 999;
 }
