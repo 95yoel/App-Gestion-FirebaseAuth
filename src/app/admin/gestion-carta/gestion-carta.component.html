@@ -3,13 +3,14 @@
     <button style="background: none;" (click)="abrirFormEntrante()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
 <div class="cajaFormulario"
+ [style.display]="mostrarFormEntrante ? 'block' : 'none'"
  [style.opacity]="mostrarFormEntrante ? '1' : '0'"
  [style.height]="mostrarFormEntrante ? 'auto' : '0'"
  [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber">
+            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="Producto.precio">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
@@ -25,13 +26,14 @@
     <button style="background: none;" (click)="abrirFormPlato()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
 <div class="cajaFormulario"
+[style.display]="mostrarFormPlato ? 'block' : 'none'"
 [style.opacity]="mostrarFormPlato ? '1' : '0'"
 [style.height]="mostrarFormPlato ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber">
+            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="Producto.precio">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
@@ -47,13 +49,14 @@
     <button style="background: none;" (click)="abrirFormPostres()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
 <div class="cajaFormulario"
+[style.display]="mostrarFormPostre ? 'block' : 'none'"
 [style.opacity]="mostrarFormPostre ? '1' : '0'"
 [style.height]="mostrarFormPostre ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber">
+            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="Producto.precio">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
@@ -69,6 +72,7 @@
     <button style="background: none;" (click)="abrirFormBebidas()"><ion-icon name="add-circle" size="large"></ion-icon></button>
 </div>
 <div class="cajaFormulario"
+[style.display]="mostrarFormBebida ? 'block' : 'none'"
 [style.opacity]="mostrarFormBebida ? '1' : '0'"
 [style.height]="mostrarFormBebida ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">

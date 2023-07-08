@@ -1,3 +1,9 @@
-<p>
-  platos works!
-</p>
+<ion-grid [fixed]="true">
+  <ion-row *ngFor="let prod of producto; let i = index">
+    <ion-col>{{i+1}}.</ion-col>
+    <ion-col>{{prod.nombre}}</ion-col>
+    <ion-col>{{prod.precio}} €</ion-col>
+    <ion-col><ion-button style="background: none;" (click)="borrar(prod.id)" color="dark"><ion-icon color="danger" name="trash"></ion-icon></ion-button></ion-col>
+    <ion-item-divider></ion-item-divider>
+  </ion-row>
+</ion-grid>

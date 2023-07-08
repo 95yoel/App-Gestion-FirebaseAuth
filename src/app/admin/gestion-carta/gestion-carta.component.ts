@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { ToastsService } from 'src/app/services/toasts.service';
 
 @Component({
   selector: 'app-gestion-carta',
@@ -11,7 +12,7 @@ export class GestionCartaComponent  implements OnInit {
   Producto ={
     id : 0,
     nombre:'',
-    precio : 0,
+    precio: 0,
   }
   
   mostrarFormEntrante:boolean=false;
@@ -20,23 +21,25 @@ export class GestionCartaComponent  implements OnInit {
   mostrarFormBebida:boolean=false;
 
 
-  constructor(private data:DataService) { }
+  constructor(private data:DataService,private toast:ToastsService) { }
 
   ngOnInit() {}
 
   anadir(categoria:string){
-        
+    
+    if(this.Producto.nombre=='' || this.Producto.precio==0){
+      this.toast.MensajePersonalizado('Rellene todos los campos',1000);
+      return;
+    }
+    
     this.Producto.id = this.data.avanzarId();
     this.data.addProducto(this.Producto,categoria);
+    this.toast.MensajePersonalizado(`${categoria} añadida`,1000);
+    this.vaciarFormulario();
   }
 
-  abrir(){
-    this.data.getEntrantes().subscribe((res)=>{
-      console.log(res);
-    }
-    ); 
-  }
 
+  
 
 
   abrirFormEntrante(){
@@ -52,6 +55,11 @@ export class GestionCartaComponent  implements OnInit {
     this.mostrarFormBebida=!this.mostrarFormBebida;
   }
 
+  vaciarFormulario(){
+    this.Producto.id = 0;
+    this.Producto.nombre = '';
+    this.Producto.precio = 0;
+  }
   
 
 }

@@ -65,7 +65,7 @@ export class DataService {
   //FUNCIONES DELETE
 
 
-  deleteProducto(id:string, categoria:string){
+  deleteProducto(id:number, categoria:string){
     const producto = doc(this.firestore, `${categoria}/${id}`);
     return deleteDoc(producto);
   }
@@ -78,7 +78,6 @@ export class DataService {
     const producto = doc(this.firestore, `${categoria}/${id}`);
     return updateDoc(producto,{id: prod.id, nombre: prod.nombre, precio: prod.precio})
   }
-
 
 
   //Obtener ultima id de la categoria

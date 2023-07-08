@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { DataService, Producto } from 'src/app/services/data.service';
+import { ToastsService } from 'src/app/services/toasts.service';
 
 @Component({
   selector: 'app-entrantes',
@@ -8,8 +9,20 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class EntrantesComponent  implements OnInit {
 
-  constructor(private data:DataService) { }
+  producto: Producto[] = [];
 
-  ngOnInit() {}
+  constructor(private data:DataService,private toast:ToastsService) { }
+
+  ngOnInit() {
+    this.data.getEntrantes().subscribe(res=>{
+      this.producto = res;
+    }
+    );
+  }
+
+  borrar(id:number){
+    this.data.deleteProducto(id,'entrantes');
+    this.toast.MensajePersonalizado('Entrante eliminado',1000);
+  }
 
 }
