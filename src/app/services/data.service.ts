@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Firestore, addDoc, collection, collectionData, deleteDoc, doc, docData, updateDoc} from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable,map } from 'rxjs';
 
 export interface Producto{
-  id: number;
+  id:string;
   nombre: string;
   precio: number;
 }
 
 export interface Mesa{
-  id: number;
+  id: string;
   numero: number;
   ruta: string;
 }
@@ -24,6 +24,7 @@ export class DataService {
 
   letId:number=0;
   letContadorMesas:number=0;
+  letNumeroMesa:number=0;
 
   constructor(private firestore:Firestore) { }
 
@@ -69,11 +70,12 @@ export class DataService {
     return addDoc(producto, prod);
   }
 
+  
 
   //FUNCIONES DELETE
 
 
-  deleteProducto(id:number, categoria:string){
+  deleteProducto(id:string, categoria:string){
     const producto = doc(this.firestore, `${categoria}/${id}`);
     return deleteDoc(producto);
   }
@@ -84,7 +86,7 @@ export class DataService {
 
   UpdateProducto(id:string, categoria:string, prod:Producto){
     const producto = doc(this.firestore, `${categoria}/${id}`);
-    return updateDoc(producto,{id: prod.id, nombre: prod.nombre, precio: prod.precio})
+    return updateDoc(producto,{nombre: prod.nombre, precio: prod.precio})
   }
 
 //MESAS
@@ -94,6 +96,20 @@ export class DataService {
     const elegirMesa = collection(this.firestore, 'mesas');
     return addDoc(elegirMesa, mesa);
   }
+
+  //FUNCIONES GET
+  getMesas(){
+    const mesas = collection(this.firestore, 'mesas');
+    return collectionData(mesas, {idField: 'id'}) as Observable<Mesa[]>;
+  }
+  
+  //FUNCIONES DELETE
+  deleteMesa(id:string){
+    const mesa = doc(this.firestore, `mesas/${id}`);
+    return deleteDoc(mesa);
+  }
+
+
 
 //CONTADORES
   
@@ -105,14 +121,31 @@ export class DataService {
     return this.letId;
   }
 
-  //MESA
+  //NUMERO MESA
 
   avanzarNumeroMesa(){
+    this.letNumeroMesa = this.letNumeroMesa+1;
+    return this.letNumeroMesa;
+  }
+
+
+  //ID MESA
+
+  avanzarIDMesa(){
     this.letContadorMesas = this.letContadorMesas+1;
     return this.letContadorMesas;
   }  
 
 
+
+  
+  
+  getUltimoIdMesa() {
+    const mesa = collection(this.firestore, 'mesas');
+    return collectionData(mesa, { idField: 'id' }).pipe(
+      map(data => data.map(item => item['id']))
+    );
+  }
 
 
 }

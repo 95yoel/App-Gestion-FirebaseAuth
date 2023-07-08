@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { DataService, Producto } from '../../services/data.service';
 import { ToastsService } from 'src/app/services/toasts.service';
 
 @Component({
@@ -10,10 +10,31 @@ import { ToastsService } from 'src/app/services/toasts.service';
 export class GestionCartaComponent  implements OnInit {
 
   Producto ={
-    id : 0,
+    id : '',
     nombre:'',
     precio: 0,
   }
+  ProductoEntrantes:Producto ={
+    id : '',
+    nombre:'',
+    precio: 0,
+  }
+  ProductoPlatos:Producto ={
+    id : '',
+    nombre:'',
+    precio: 0,
+  }
+  ProductoPostres:Producto ={
+    id : '',
+    nombre:'',
+    precio: 0,
+  }
+  ProductoBebidas:Producto ={
+    id : '',
+    nombre:'',
+    precio: 0,
+  }
+
   
   mostrarFormEntrante:boolean=false;
   mostrarFormPlato:boolean=false;
@@ -25,20 +46,27 @@ export class GestionCartaComponent  implements OnInit {
 
   ngOnInit() {}
 
-  anadir(categoria:string){
-    
-    if(this.Producto.nombre=='' || this.Producto.precio==0){
-      this.toast.MensajePersonalizado('Rellene todos los campos',1000);
+  anadir(prod: Producto, categoria: string) {
+    if (prod.nombre == '' || prod.precio == 0) {
+      this.toast.MensajePersonalizado('Rellene todos los campos', 1000);
       return;
     }
-    
-    this.Producto.id = this.data.avanzarId();
-    this.data.addProducto(this.Producto,categoria);
-    this.toast.MensajePersonalizado(`${categoria} añadida`,1000);
-    this.vaciarFormulario();
+    prod.precio = prod.precio;
+    prod.nombre = prod.nombre;
+  
+    this.data.addProducto(prod, categoria).then((docRef) => {
+      prod.id = docRef.id;
+      this.toast.MensajePersonalizado('Producto añadido correctamente', 1000);
+    }).catch(() => {
+      alert('Error al añadir el producto');
+      this.toast.MensajePersonalizado('Error al añadir el producto', 1000);
+    });
+     this.vaciarFormulario();
   }
+  
+  
 
-
+  
   
 
 
@@ -56,9 +84,21 @@ export class GestionCartaComponent  implements OnInit {
   }
 
   vaciarFormulario(){
-    this.Producto.id = 0;
+    this.Producto.id = '';
     this.Producto.nombre = '';
     this.Producto.precio = 0;
+    this.ProductoEntrantes.id = '';
+    this.ProductoEntrantes.nombre = '';
+    this.ProductoEntrantes.precio = 0;
+    this.ProductoPlatos.id = '';
+    this.ProductoPlatos.nombre = '';
+    this.ProductoPlatos.precio = 0;
+    this.ProductoPostres.id = '';
+    this.ProductoPostres.nombre = '';
+    this.ProductoPostres.precio = 0;
+    this.ProductoBebidas.id = '';
+    this.ProductoBebidas.nombre = '';
+    this.ProductoBebidas.precio = 0;
   }
   
 

@@ -21,7 +21,7 @@ export class PlatosComponent  implements OnInit {
   }
 
 
-  borrar(id:number){
+  borrar(id:string){
     this.data.deleteProducto(id,'platos');
     this.toast.MensajePersonalizado('Plato eliminado',1000);
   }

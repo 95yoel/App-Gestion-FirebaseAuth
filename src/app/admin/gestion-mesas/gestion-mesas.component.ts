@@ -10,7 +10,7 @@ import { ToastsService } from 'src/app/services/toasts.service';
 export class GestionMesasComponent  implements OnInit {
 
   mesa={
-    id:0,
+    id:'',
     numero:0,
     ruta:'',
   }
@@ -29,19 +29,18 @@ export class GestionMesasComponent  implements OnInit {
   }
 
   comprobarMesa(){
-    
+
     let rutaBase =`../../../assets/mesas/mesa${this.mesa.numero}.png`;
-    this.mesa.id=this.data.avanzarNumeroMesa();
+    this.mesa.numero=this.data.avanzarNumeroMesa();
     this.mesa.ruta=rutaBase;
 
-    this.data.addMesa(this.mesa).then(()=>{
-      this.toast.MensajePersonalizado('Mesa añadida correctamente',1000);
-    }
-    ).catch(()=>{
-      this.toast.MensajePersonalizado('Error al añadir la mesa',1000);
-    }
-    );
-
+    this.data.addMesa(this.mesa).then((docRef) => {
+      this.mesa.id = docRef.id;
+      this.toast.MensajePersonalizado('Mesa añadida correctamente', 1000);
+      this.defecto=true;
+    }).catch(() => {
+      this.toast.MensajePersonalizado('Error al añadir la mesa', 1000);
+    });
   }
 
   comprobarCambios(){

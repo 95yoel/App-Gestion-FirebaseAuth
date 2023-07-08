@@ -20,7 +20,7 @@ export class EntrantesComponent  implements OnInit {
     );
   }
 
-  borrar(id:number){
+  borrar(id:string){
     this.data.deleteProducto(id,'entrantes');
     this.toast.MensajePersonalizado('Entrante eliminado',1000);
   }

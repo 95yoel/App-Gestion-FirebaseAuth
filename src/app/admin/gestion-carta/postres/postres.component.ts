@@ -21,7 +21,7 @@ export class PostresComponent  implements OnInit {
   }
 
 
-  borrar(id:number){
+  borrar(id:string){
     this.data.deleteProducto(id,'postres');
     this.toast.MensajePersonalizado('Postre eliminado',1000);
   }

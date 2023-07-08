@@ -17,6 +17,7 @@ import { BebidasComponent } from './gestion-carta/bebidas/bebidas.component';
 import { EntrantesComponent } from './gestion-carta/entrantes/entrantes.component';
 import { PlatosComponent } from './gestion-carta/platos/platos.component';
 import { PostresComponent } from './gestion-carta/postres/postres.component';
+import { MesasComponent } from './gestion-mesas/mesas/mesas.component';
 
 
 
@@ -37,6 +38,7 @@ import { PostresComponent } from './gestion-carta/postres/postres.component';
     EntrantesComponent,
     PlatosComponent,
     PostresComponent,
+    MesasComponent
     
   ]
 })

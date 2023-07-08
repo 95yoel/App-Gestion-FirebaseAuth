@@ -7,14 +7,14 @@
  [style.opacity]="mostrarFormEntrante ? '1' : '0'"
  [style.height]="mostrarFormEntrante ? 'auto' : '0'"
  [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="ProductoEntrantes.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="Producto.precio">
+            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="ProductoEntrantes.precio">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
-    <ion-button color="success" (click)="anadir('entrantes')">Añadir</ion-button>
+    <ion-button color="success" (click)="anadir(ProductoEntrantes,'entrantes')">Añadir</ion-button>
 </div>
 <app-entrantes></app-entrantes>
 
@@ -30,14 +30,14 @@
 [style.opacity]="mostrarFormPlato ? '1' : '0'"
 [style.height]="mostrarFormPlato ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="ProductoPlatos.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="Producto.precio">
+            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="ProductoPlatos.precio">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
-    <ion-button color="success" (click)="anadir('platos')">Añadir</ion-button>
+    <ion-button color="success" (click)="anadir(ProductoPlatos,'platos')">Añadir</ion-button>
 </div>
 <app-platos></app-platos>
 
@@ -53,14 +53,14 @@
 [style.opacity]="mostrarFormPostre ? '1' : '0'"
 [style.height]="mostrarFormPostre ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="ProductoPostres.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="Producto.precio">
+            <input type="number" placeholder="Precio" class="inputNumber" [(ngModel)]="ProductoPostres.precio">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
-    <ion-button color="success" (click)="anadir('postres')">Añadir</ion-button>
+    <ion-button color="success" (click)="anadir(ProductoPostres,'postres')">Añadir</ion-button>
 </div>
 <app-postres></app-postres>
 
@@ -76,14 +76,14 @@
 [style.opacity]="mostrarFormBebida ? '1' : '0'"
 [style.height]="mostrarFormBebida ? 'auto' : '0'"
 [style.transition]="'opacity 0.3s,height 0.2s'">
-    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="Producto.nombre"></textarea><br>
+    <textarea placeholder="Nombre" cols="22" rows="4" [(ngModel)]="ProductoBebidas.nombre"></textarea><br>
     <div class="cajaInputs">
         <div style="position: relative;">
-            <input type="number" placeholder="Precio" [(ngModel)]="Producto.precio" class="inputNumber">
+            <input type="number" placeholder="Precio" [(ngModel)]="ProductoBebidas.precio" class="inputNumber">
             <ion-icon name="logo-euro" class="iconEuro"></ion-icon>
         </div>
     </div><br><br>
-    <ion-button color="success" (click)="anadir('bebidas')">Añadir</ion-button>
+    <ion-button color="success" (click)="anadir(ProductoBebidas,'bebidas')">Añadir</ion-button>
 </div>
 <app-bebidas></app-bebidas>
 

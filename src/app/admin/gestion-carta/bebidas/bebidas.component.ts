@@ -20,7 +20,7 @@ export class BebidasComponent  implements OnInit {
     );
   }
 
-  borrar(id:number){
+  borrar(id:string){
     this.data.deleteProducto(id,'bebidas');
     this.toast.MensajePersonalizado('Bebida eliminada',1000);
   }
