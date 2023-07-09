@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Producto } from 'src/app/services/data.service';
-import { ToastsService } from 'src/app/services/toasts.service';
+import { DataService, Producto } from 'src/app/services/data/data.service';
+import { ToastsService } from 'src/app/services/toasts/toasts.service';
 
 @Component({
   selector: 'app-platos',

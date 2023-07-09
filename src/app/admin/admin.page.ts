@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../services/admin.service';
-import { ToastsService } from '../services/toasts.service';
+import { AdminService } from '../services/admin/admin.service';
+import { ToastsService } from '../services/toasts/toasts.service';
 import { Router } from '@angular/router';
 
 
