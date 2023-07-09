@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService, Mesa } from '../services/data/data.service';
 
 @Component({
   selector: 'app-usuario',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioPage implements OnInit {
 
-  constructor() { }
+  mesas:Mesa[]=[];
+  
+  constructor(private data:DataService) { }
 
   ngOnInit() {
+    this.data.getMesas().subscribe(res=>{
+      this.mesas = res;
+    }
+    );
   }
 
 }

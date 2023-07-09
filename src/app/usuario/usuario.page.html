@@ -9,9 +9,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fondo">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">usuario</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-grid [fixed]="true">
+    <ion-row *ngFor="let prod of mesas; let i = index">
+      <ion-col>Mesa {{prod.numero}}</ion-col>
+      <ion-col><img src="{{prod.ruta}}" style="border-radius: 20px;"></ion-col>
+      <ion-col><ion-button style="background: none;" color="dark"><ion-icon name="radio-button-off-outline"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button style="background: none;" color="dark"><ion-icon color="light" name="cart"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button style="background: none;" color="dark"><ion-icon color="light" name="reload-outline"></ion-icon></ion-button></ion-col>
+      <ion-item-divider></ion-item-divider>
+    </ion-row>
+  </ion-grid> 
+
 </ion-content>

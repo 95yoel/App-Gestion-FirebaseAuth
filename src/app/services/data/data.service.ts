@@ -127,6 +127,10 @@ export class DataService {
     this.letNumeroMesa = this.letNumeroMesa+1;
     return this.letNumeroMesa;
   }
+  reducirNumeroMesa(){
+    this.letNumeroMesa = this.letNumeroMesa-1;
+    return this.letNumeroMesa;
+  }
 
 
   //ID MESA
