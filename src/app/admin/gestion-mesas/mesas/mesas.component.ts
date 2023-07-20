@@ -16,8 +16,7 @@ export class MesasComponent  implements OnInit {
   ngOnInit() {
     this.data.getMesas().subscribe(res=>{
       this.mesas = res;
-    }
-    );
+    });
   }
 
   borrar(id:string){
