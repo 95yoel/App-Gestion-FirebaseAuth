@@ -23,9 +23,22 @@ export class UsuarioPage implements OnInit {
     );
   }
 
-  mostrarId(id:string){
-    this.toast.MensajePersonalizado(id,1000);
+  mostrarEstado(mesa:Mesa){
+    this.toast.MensajePersonalizado("Estado mesa: " +mesa.estado,1000);
+    console.log(mesa);
   }
-  
+  vaciarMesa(mesa:Mesa){
+    mesa.estado="vacio";
+    if(mesa.estado=="vacio"){
+      this.toast.MensajePersonalizado('La mesa ya esta vacía',1000);
+    }else{
+      this.data.updateMesa(mesa).then(()=>{
+        this.toast.MensajePersonalizado('Mesa vaciada con exito',1000);
+      });
+    }
+   
+  }
+
+
 
 }

@@ -12,6 +12,8 @@ export interface Mesa{
   id: string;
   numero: number;
   ruta: string;
+  estado:string;
+  pedidos:any[];
 }
 
 
@@ -101,6 +103,11 @@ export class DataService {
   getMesas(){
     const mesas = collection(this.firestore, 'mesas');
     return collectionData(mesas, {idField: 'id'}) as Observable<Mesa[]>;
+  }
+
+  updateMesa(mesa:Mesa){
+    const elegirMesa = doc(this.firestore, `mesas/${mesa.id}`);
+    return updateDoc(elegirMesa,{estado: mesa.estado, pedidos: mesa.pedidos})
   }
   
   //FUNCIONES DELETE

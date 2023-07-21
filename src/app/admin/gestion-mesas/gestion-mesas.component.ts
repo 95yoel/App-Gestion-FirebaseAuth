@@ -13,6 +13,8 @@ export class GestionMesasComponent  implements OnInit {
     id:'',
     numero:0,
     ruta:'',
+    estado:'',
+    pedidos:[]
   }
   
   defecto:boolean=true;
@@ -33,9 +35,10 @@ export class GestionMesasComponent  implements OnInit {
     let rutaBase =`../../../assets/mesas/mesa${this.mesa.numero}.png`;
     this.mesa.numero=this.data.avanzarNumeroMesa();
     this.mesa.ruta=rutaBase;
-
+    this.mesa.estado="vacio"
+    this.mesa.pedidos=[];
     this.data.addMesa(this.mesa).then((docRef) => {
-      this.mesa.id = docRef.id;
+      this.mesa.id = docRef.id;  
       this.toast.MensajePersonalizado('Mesa añadida correctamente', 1000);
       this.defecto=true;
     }).catch(() => {

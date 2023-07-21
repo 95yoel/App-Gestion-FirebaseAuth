@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
   },
   {
+    path: 'pedido/:mesa',
+    loadChildren: () => import('./usuario/pedido/pedido.module').then( m => m.PedidoPageModule)
+  },
+  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule),
     ...canActivate(redirectUnauthorizedToInicio)
