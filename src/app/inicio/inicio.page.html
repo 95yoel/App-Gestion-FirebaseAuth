@@ -1,18 +1,19 @@
-<ion-content [fullscreen]="true" class="fondo">
+<ion-content [fullscreen]="true" class="fondo" data-test="main-content">
   <div id="container">
-    <img src="assets/icon/favicon.png" alt="logo" id="logo">
-    <ion-card style="background-color: rgb(233, 233, 233);">
+    <img src="assets/icon/favicon.png" alt="logo" id="logo" data-test="logo-image">
+    <ion-card style="background-color: rgb(233, 233, 233);" data-test="login-card">
       <ion-card-content>
-        <ion-button color="dark" (click)="abrir()">Admin</ion-button>
+        <ion-button color="dark" (click)="abrir()" data-test="admin-button">Admin</ion-button>
         <br><br>
         <div [style.opacity]="mostrar ? '1' : '0'" 
              [style.height]="mostrar ? 'auto' : '0'" 
-             [style.transition]="'opacity 0.3s, height 0.3s'">
-        <app-admin-form></app-admin-form>
-      </div>
-        <ion-button [style.opacity]="mostrar ? '0' : '1'" color="success" routerLink="/usuario">Usuario</ion-button>
+             [style.transition]="'opacity 0.3s, height 0.3s'" data-test="admin-form">
+          <app-admin-form></app-admin-form>
+        </div>
+        <ion-button [style.opacity]="mostrar ? '0' : '1'" color="success" routerLink="/usuario" data-test="usuario-button">Usuario</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
 </ion-content>
+
 
